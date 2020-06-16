@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Curso JS</title>
+    <style>
+        body {
+            background-color: rgb(54, 54, 54);
+            color: white;
+        }
+
+        code {
+            background-color: gray;
+            padding-left: 4px;
+            padding-right: 2px;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Anotações Curso JS</h1>
-    
+    <h2>Aula 01</h2>
+    <p>Vamos começar aprendendo três códigos simples para nos familiarizarmos com o javascript.</p>
+    <h3>alert</h3>
+    <p>O código: <code>windonw.alert('')</code> exibe na tela uma "janela" acima do site com a informação contida dentro das aspas.</p>
+    <p>Teste:</p>
+    <code>windonw.alert('Minha primeira mensagem')</code>
+    <p>Você deve ver um resultado como:</p>
+    <img src="/Curso JS/img/cursoJs-alert.png" alt="mensagem do 'alert'">
+    <hr>
+
+    <h3>confirm</h3>
+    <p>O código: <code>windonw.confirm('')</code> exibe na tela uma "janela" acima do site com a informação contida dentro das aspas e solicita a corfirmação (ok) ou não (cancelar) da mensagem.</p>
+    <p>Teste:</p>
+    <code>windonw.confirm('Está gostando do curso?')</code>
+    <p>Você deve ver um resultado como:</p>
+    <img src="/Curso JS/img/cursoJs-confirm.png" alt="mensagem do 'confirm'">
+    <hr>
+
+    <h3>prompt</h3>
+    <p>O código: <code>windonw.prompt('')</code> exibe na tela uma "janela" acima do site com a informação contida dentro das aspas e solicita o preenchimento do campo de texto conforme instrução da mensagem.</p>
+    <p>Teste:</p>
+    <code>windonw.prompt('Qual é o seu nome?')</code>
+    <p>Você deve ver um resultado como:</p>
+    <img src="/Curso JS/img/cursoJs-prompt.png" alt="mensagem do 'prompt'">
+    <hr>
+
+
+
+    <script>
+        window.alert('Minha primeira mensagem')
+        window.confirm('Está gostano do curso?')
+        window.prompt('Qual é o seu nome?')
+    </script>
 </body>
 </html>
