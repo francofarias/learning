@@ -9,16 +9,20 @@ const canvas = document.getElementById('jogo') //Pega o elemento canvas criado n
 const ctx = canvas.getContext('2d') //Pega o contexto 2D do canvas para utilizar os métodos de renderização 2D
 
 
-//Objeto bolinha
+/**
+ * Cria o objeto bolinha
+ */
 var bolinha = {
     xBolinha: 300,
     yBolinha: 200,
     raioBolinha: 10,
     velXBolinha: 1,
     velYBolinha: 1,
-
+    
+/**
+ * cria a bolinha (que na verdade é um quadrado pra simplificar a renderização do jogo)
+ */
     desenha: function(){
-        //cria a bolinha (que na verdade é um quadrado pra simplificar a renderização do jogo)
         ctx.fillStyle = "white"
         ctx.fillRect(this.xBolinha, this.yBolinha, this.raioBolinha, this.raioBolinha)
     },
