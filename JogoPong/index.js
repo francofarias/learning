@@ -1,8 +1,13 @@
-const canvas = document.getElementById('jogo')
-const ctx = canvas.getContext('2d')
+//Jogo ponto feito por Franco F. Farias para fins de estudo
+//Referências: curso Alura, MDN, canal Youtube: Veslasoft - Filipe Alves
+
 //O sistema de coordenadas no canvas começa do ponto x,y = 0,0 que fica no alto do canvas
 //a esquerda, e seu valor de x aumenta enquanto andamos para a direita e seu valor de
 //y aumenta enquanto andamos para baixo
+
+const canvas = document.getElementById('jogo') //Pega o elemento canvas criado no HTML pelo id
+const ctx = canvas.getContext('2d') //Pega o contexto 2D do canvas para utilizar os métodos de renderização 2D
+
 
 //Objeto bolinha
 var bolinha = {
@@ -54,6 +59,9 @@ var raquete2 = Object.create(raquete) //jogador da direita
 iniciaJogo();
 
 function iniciaJogo() {
+//Inicia o jogo colocando os atores nas suas posições iniciais de definindo o valor inicial
+//das variáveis de controle
+
     //Desenha o campo de jogo
     ctx.fillStyle = "black"
     ctx.fillRect(0,0,canvas.width,canvas.height)
@@ -69,9 +77,10 @@ function iniciaJogo() {
 
     rodaJogo()
 }
+
 function rodaJogo(){
-// Função recursiva que desenha todos os elementos do jogo na tela usando o elamento canvas do
-//html
+// Função recursiva que desenha todos os elementos do jogo e atualiza a posição dos atores,
+// verifica colisões e computa as demais regras do jogo
 
     //Desenha o campo de jogo sobreescrevendo tudo que foi desenhado antes, limpa a tela para
     //um novo frame/quadro do jogo
