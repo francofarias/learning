@@ -8,7 +8,6 @@
 const canvas = document.getElementById('jogo') //Pega o elemento canvas criado no HTML pelo id
 const ctx = canvas.getContext('2d') //Pega o contexto 2D do canvas para utilizar os métodos de renderização 2D
 
-
 /**
  * Cria o objeto bolinha
  */
@@ -16,8 +15,8 @@ var bolinha = {
     xBolinha: 300,
     yBolinha: 200,
     raioBolinha: 10,
-    velXBolinha: 1,
-    velYBolinha: 1,
+    velXBolinha: 6,
+    velYBolinha: 6,
     
 /**
  * cria a bolinha (que na verdade é um quadrado pra simplificar a renderização do jogo)
@@ -30,6 +29,7 @@ var bolinha = {
         //Move a bolinha no eixo X e Y com a velocidade definida
         this.xBolinha += this.velXBolinha
         this.yBolinha += this.velYBolinha
+        this.colisão()
     },
     colisão: function(){
         //Verifica colisão com as bordas do canvas
@@ -42,23 +42,71 @@ var bolinha = {
     }
 }
 
-//Objeto raquete
+/**
+ * Cria objeto raquete
+ */
 var raquete = {
     xRaquete: 0,
     yRaquete: 150,
     larguraRaquete: 6,
     alturaRaquete: 100,
+    velRaquete: 0,
+    chanceErro: 0,
+    contador:0.1,
 
+    /**
+     * Método para desenhar as raquetes, posição x utilizada para definir o lado do campo
+     */
     desenha: function(){
-        //Desenha a raquete de acordo com as coordenadas e dimensões definidas
         ctx.fillStyle = "white"
         ctx.fillRect(this.xRaquete, this.yRaquete, this.larguraRaquete, this.alturaRaquete)
+    },
+
+    /**
+     * Move a raquete seguindo a bolinha de forma altomatica, adiciona um erro para o jogador poder ganhar.
+     * @param {number} yBolinha 
+     */
+    moveIa: function(yBolinha){
+        if (this.chanceErro < -60){
+            this.contador *= -1
+        }
+        if (this.chanceErro > 60){
+            this.contador *= -1
+        }
+        //O contator incrimenta e decrementa a chance da raquete errar a bolinha com o tempo
+        this.chanceErro += this.contador
+        //Para determinar a velocidade que a raquete vai seguir a bolinha subtraimos a posição y da bolinha da da raquete com a correção para a posição do meio da raqueta e adicionamos o erro
+        this.velRaquete = yBolinha - this.yRaquete - 50 - this.chanceErro
+        this.yRaquete += this.velRaquete
+    },
+    moveJogador: function(tecla){
+        if(tecla === 'ArrowUp'){
+            this.yRaquete += -50
+        }
+        if(tecla === 'ArrowDown'){
+            this.yRaquete += 50
+        }
     }
 }
 
 //Cria as raqutes dos jogares
 var raquete1 = Object.create(raquete) //jogador da esquerda
 var raquete2 = Object.create(raquete) //jogador da direita
+
+var teclaJogador
+
+//Observa as teclas precionadas e chama a função teclaPrecionada
+document.addEventListener('keydown', teclaPrecionada)
+/**
+ * @param {string} event 
+ */
+function teclaPrecionada(event){
+    teclaJogador = event.key
+
+    raquete1.moveJogador(teclaJogador)
+}
+
+
 
 iniciaJogo();
 
@@ -94,10 +142,10 @@ function rodaJogo(){
 
     bolinha.desenha()
     bolinha.moveIa()
-    bolinha.colisão()
 
     raquete1.desenha()
     raquete2.desenha()
+    raquete2.moveIa(bolinha.yBolinha)
 
 
     requestAnimationFrame(rodaJogo) //função que gera o loop para o jogo
