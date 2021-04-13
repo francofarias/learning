@@ -63,7 +63,7 @@ var raquete = {
     },
 
     /**
-     * Move a raquete seguindo a bolinha de forma altomatica, adiciona um erro para o jogador poder ganhar.
+     * Move a raquete seguindo a bolinha de forma automática, adiciona um erro para o jogador poder ganhar.
      * @param {number} yBolinha 
      */
     moveIa: function(yBolinha){
@@ -89,7 +89,7 @@ var raquete = {
     }
 }
 
-//Cria as raqutes dos jogares
+//Cria as raquetes dos jogares
 var raquete1 = Object.create(raquete) //jogador da esquerda
 var raquete2 = Object.create(raquete) //jogador da direita
 
