@@ -27,17 +27,30 @@ var bolinha = {
     },
     moveIa: function(){
         //Move a bolinha no eixo X e Y com a velocidade definida
+        this.colisão()
         this.xBolinha += this.velXBolinha
         this.yBolinha += this.velYBolinha
-        this.colisão()
     },
     colisão: function(){
         //Verifica colisão com as bordas do canvas
-        if(this.xBolinha + this.raioBolinha >= canvas.width || this.xBolinha < 0){
+        if(this.xBolinha + this.raioBolinha >= canvas.width){
+            this.velXBolinha *= -1
+            raquete1.pontos += 1
+        }
+        if(this.xBolinha <= 0){
+            this.velXBolinha *= -1
+            raquete2.pontos += 1
+        }
+        if(this.yBolinha + this.raioBolinha >= canvas.height || this.yBolinha <= 0){
+            this.velYBolinha *= -1
+        }
+        
+        //Verifica a colição com as raquetes
+        if(this.xBolinha + this.raioBolinha >= raquete2.xRaquete && this.yBolinha >= raquete2.yRaquete && this.yBolinha <= raquete2.yRaquete + raquete2.alturaRaquete && this.velXBolinha > 0){
             this.velXBolinha *= -1
         }
-        if(this.yBolinha + this.raioBolinha >= canvas.height || this.yBolinha < 0){
-            this.velYBolinha *= -1
+        if(this.xBolinha <= raquete1.xRaquete + raquete1.larguraRaquete && this.yBolinha >= raquete1.yRaquete && this.yBolinha <= raquete1.yRaquete + raquete1.alturaRaquete && this.velXBolinha < 0){
+            this.velXBolinha *= -1
         }
     }
 }
@@ -53,6 +66,7 @@ var raquete = {
     velRaquete: 0,
     chanceErro: 0,
     contador:0.1,
+    pontos:0,
 
     /**
      * Método para desenhar as raquetes, posição x utilizada para definir o lado do campo
