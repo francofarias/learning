@@ -31,6 +31,17 @@ var bolinha = {
         this.xBolinha += this.velXBolinha
         this.yBolinha += this.velYBolinha
     },
+    /**
+     * Verifica a colisão com as bordas do canvas (área/campo de jogo), compara
+     * a posição da bolinha se está dentro das dimensões do canvas, quando observa
+     * que o valor excedeu inverte a direção da bolinha
+     * 
+     * Verifica a colisão com as raquetes, compara a posição da bolinha e das
+     * raquetes, invertendo a direção da bolinha quando determina a colição,
+     * a colisão com as raquetes só é valida pela frente delas, sendo feita uma
+     * verificação adicional da direção da bolinha pra determinar se ela colidiu
+     * pela frente da raquete (valido) ou pela parte de trás (invalido)
+     */
     colisão: function(){
         //Verifica colisão com as bordas do canvas
         if(this.xBolinha + this.raioBolinha >= canvas.width){
@@ -161,6 +172,8 @@ function rodaJogo(){
     raquete2.desenha()
     raquete2.moveIa(bolinha.yBolinha)
 
+    ctx.fillText(raquete1.pontos,250,30)
+    ctx.fillText(raquete2.pontos,350,30)
 
     requestAnimationFrame(rodaJogo) //função que gera o loop para o jogo
 }
