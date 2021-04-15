@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(54, 54, 54);
+    background-color: rgb(29, 29, 29);
     color: white;
 }
 
@@ -7,4 +7,17 @@ code {
     background-color: gray;
     padding-left: 4px;
     padding-right: 2px;
+}
+
+.conteudo {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(54, 54, 54);
+    padding: 30px;
+    padding-top: 1px;
+}
+
+a {
+    color: whitesmoke;
 }
