@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo Cabos Elétricos</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(43, 43, 43);
+            font: 18px Arial;
+            color:white;
+        }
+        h1, h2, h3, p, a {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: 5vh 90vh 5vh;
+            grid-template-areas: "header header header"
+                                 "menu conteudo conteudo"
+                                 "menu rodape rodape";
+        }
+
+        h1 {
+            padding: 3px;
+            font-size: 22px;
+        }
+
+        header {
+            background-color: rgb(50, 201, 206);
+            overflow: hidden;
+            grid-area: header;
+        }
+        nav {
+            background-color: rgb(39, 40, 41);
+            overflow: hidden;
+            grid-area: menu;
+            padding-top: 20px;
+        }
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            padding: 10px 10px;
+            background-color: gb(39, 40, 41);
+        }
+        nav a:hover {
+            background-color: rgb(95, 95, 95);
+        }
+        main {
+            background-color: rgb(95, 95, 95);
+            overflow: hidden;
+            grid-area: conteudo;
+            padding: 10px;
+        }
+
+        footer {
+            background-color: rgb(61, 61, 61);
+            height: 100%;
+            overflow: hidden;
+            grid-area: rodape;
+            display: flex;
+        }
+        footer p {
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cálculo Cabos Elétricos</h1>
+    </header>
+    <nav>
+        <a id="btn-home" onclick="telaHome()">Home</a>
+        <a id="btn-circuitos" onclick="telaCircuitos()">Circuitos</a>
+        <a id="btn-cabos" onclick="telaCabos()">Cabos</a>
+    </nav>
+    <main id="conteudo">
+        <h2>Home</h2>
+        <hr>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>
+    </main>
+    <footer>
+        <p>Todos os direitos reservados: Franco F. Farias</p>
+    </footer>
+    <script>
+        const conteudo = document.querySelector("main#conteudo")
+        function telaHome(){
+            conteudo.innerHTML = "<h2>Home</h2>            <hr>            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>"
+        }
+        function telaCircuitos(){
+            conteudo.innerHTML = "<h2>Circuitos</h2>            <hr>            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>"
+        }
+        function telaCabos(){
+            conteudo.innerHTML = "<h2>Cabos</h2>            <hr>            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>"
+        }
+    </script>
+</body>
+</html>
