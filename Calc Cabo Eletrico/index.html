@@ -39,16 +39,19 @@
         }
         nav {
             background-color: rgb(39, 40, 41);
-            overflow: hidden;
+            /*overflow: hidden;*/
+            display: inline-block;
             grid-area: menu;
             padding-top: 20px;
+            /*width: 350px;*/
+            z-index: 100;
         }
         nav a {
             display: block;
             text-decoration: none;
             color: white;
             padding: 10px 10px;
-            background-color: gb(39, 40, 41);
+            background-color: rgb(39, 40, 41);
         }
         nav a:hover {
             background-color: rgb(95, 95, 95);
@@ -69,6 +72,28 @@
         }
         footer p {
             margin: auto;
+        }
+
+        @media only screen and (max-width: 600px){
+            body {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 5vh 5vh 85vh 5vh;
+            grid-template-areas: "header"
+                                 "menu"
+                                 "conteudo"
+                                 "rodape";
+        }
+            nav {
+                grid-area: menu;
+                padding: 0;
+                display: flex;
+            }
+            nav a {
+                padding: 0 10px;
+                padding-top: 5px;
+                
+            }
         }
 
     </style>
@@ -92,14 +117,25 @@
     </footer>
     <script>
         const conteudo = document.querySelector("main#conteudo")
+        const menu = document.querySelectorAll('nav a')
         function telaHome(){
             conteudo.innerHTML = "<h2>Home</h2>            <hr>            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>"
+            menu[0].style.backgroundColor = 'rgb(95, 95, 95)'
+            menu[1].style.backgroundColor = ''
+            menu[2].style.backgroundColor = ''
+
         }
         function telaCircuitos(){
             conteudo.innerHTML = "<h2>Circuitos</h2>            <hr>            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>"
+            menu[0].style.backgroundColor = ''
+            menu[1].style.backgroundColor = 'rgb(95, 95, 95)'
+            menu[2].style.backgroundColor = ''
         }
         function telaCabos(){
             conteudo.innerHTML = "<h2>Cabos</h2>            <hr>            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>"
+            menu[0].style.backgroundColor = ''
+            menu[1].style.backgroundColor = ''
+            menu[2].style.backgroundColor = 'rgb(95, 95, 95)'
         }
     </script>
 </body>
