@@ -1,0 +1,59 @@
+:root {
+    --corMenuPrincipal: #111;
+    --corFundo: linear-gradient( 110.3deg,  rgb(49, 49, 49) 4.3%, rgb(37, 37, 37) 96.7% );
+    --corCard: rgb(71,71,71);
+    --corRodape: #080808;
+    --corFonte: #fff;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: 18px Arial;
+    color: var(--corFonte);
+}
+h1, h2, h3, p, a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+.app {
+    background-image: var(--corFundo);
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: 60px calc(100vh - 32px - 60px) 32px;
+    grid-template-areas: "menu header header"
+                         "menu conteudo conteudo"
+                         "menu rodape rodape";
+}
+
+.menuPrincipal {
+    grid-area: menu;
+}
+
+.cabeçalho {
+    grid-area: header;
+}
+
+.conteudo {
+    grid-area: conteudo;
+}
+
+.rodape {
+    grid-area: rodape;
+}
+
+/* Testes */
+.popup {
+    /* grid-area: conteudo; */
+    grid-row: 1/4;
+    grid-row: 1/4;
+    position: absolute;
+    left: 300px;
+    top: 300px;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    z-index: 4;
+}

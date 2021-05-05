@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cálculo Cabos Elétricos</title>
+    <script src="./MenuNavegação.js" defer></script>
+
     <style>
         html, body {
             margin: 0;
@@ -21,7 +23,7 @@
         body {
             display: grid;
             grid-template-columns: 200px 1fr 200px;
-            grid-template-rows: 5vh 90vh 5vh;
+            grid-template-rows: 32px calc(100vh - 64px) 32px;
             grid-template-areas: "header header header"
                                  "menu conteudo conteudo"
                                  "menu rodape rodape";
@@ -30,32 +32,17 @@
         h1 {
             padding: 3px;
             font-size: 22px;
+            
         }
+        
 
         header {
             background-color: rgb(50, 201, 206);
             overflow: hidden;
             grid-area: header;
+            
         }
-        nav {
-            background-color: rgb(39, 40, 41);
-            /*overflow: hidden;*/
-            display: inline-block;
-            grid-area: menu;
-            padding-top: 20px;
-            /*width: 350px;*/
-            z-index: 100;
-        }
-        nav a {
-            display: block;
-            text-decoration: none;
-            color: white;
-            padding: 10px 10px;
-            background-color: rgb(39, 40, 41);
-        }
-        nav a:hover {
-            background-color: rgb(95, 95, 95);
-        }
+
         main {
             background-color: rgb(95, 95, 95);
             overflow: hidden;
@@ -66,6 +53,7 @@
         footer {
             background-color: rgb(61, 61, 61);
             height: 100%;
+            
             overflow: hidden;
             grid-area: rodape;
             display: flex;
@@ -74,39 +62,42 @@
             margin: auto;
         }
 
+        menu-navegacao{
+            display: flex;
+            grid-area: menu;
+            z-index: 0;
+        }
+
         @media only screen and (max-width: 600px){
             body {
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 5vh 5vh 85vh 5vh;
+            grid-template-rows: 32px 32px calc(100vh - 32px - 32px - 32px) 32px;
             grid-template-areas: "header"
                                  "menu"
                                  "conteudo"
                                  "rodape";
         }
-            nav {
-                grid-area: menu;
-                padding: 0;
+            menu-navegacao{
                 display: flex;
-            }
-            nav a {
-                padding: 0 10px;
-                padding-top: 5px;
-                
+                grid-area: menu;
+                z-index: 0;
             }
         }
+
+
 
     </style>
 </head>
 <body>
+    
     <header>
         <h1>Cálculo Cabos Elétricos</h1>
     </header>
-    <nav>
-        <a id="btn-home" onclick="telaHome()">Home</a>
-        <a id="btn-circuitos" onclick="telaCircuitos()">Circuitos</a>
-        <a id="btn-cabos" onclick="telaCabos()">Cabos</a>
-    </nav>
+    
+    <menu-navegacao></menu-navegacao>
+
+    
     <main id="conteudo">
         <h2>Home</h2>
         <hr>
@@ -115,27 +106,19 @@
     <footer>
         <p>Todos os direitos reservados: Franco F. Farias</p>
     </footer>
-    <script>
+
+    <script defer>
         const conteudo = document.querySelector("main#conteudo")
-        const menu = document.querySelectorAll('nav a')
+        const menu = document.querySelectorAll('a')
+        console.log(menu[0])
         function telaHome(){
             conteudo.innerHTML = "<h2>Home</h2>            <hr>            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>"
-            menu[0].style.backgroundColor = 'rgb(95, 95, 95)'
-            menu[1].style.backgroundColor = ''
-            menu[2].style.backgroundColor = ''
-
         }
         function telaCircuitos(){
             conteudo.innerHTML = "<h2>Circuitos</h2>            <hr>            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>"
-            menu[0].style.backgroundColor = ''
-            menu[1].style.backgroundColor = 'rgb(95, 95, 95)'
-            menu[2].style.backgroundColor = ''
         }
         function telaCabos(){
             conteudo.innerHTML = "<h2>Cabos</h2>            <hr>            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>"
-            menu[0].style.backgroundColor = ''
-            menu[1].style.backgroundColor = ''
-            menu[2].style.backgroundColor = 'rgb(95, 95, 95)'
         }
     </script>
 </body>

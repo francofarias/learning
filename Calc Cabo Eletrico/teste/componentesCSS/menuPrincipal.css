@@ -1,0 +1,41 @@
+.menuPrincipal {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--corMenuPrincipal);
+    overflow: hidden;
+    color: var(--corFonte);
+}
+
+.menuPrincipal__logo {
+    width: 100%;
+    height: 70px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    background-color: turquoise;
+}
+
+.menuPrincipal__lista {
+    padding-left: 0;
+    list-style: none;
+}
+
+.menuPrincipal__botao {
+    padding: 10px;
+}
+.menuPrincipal__botao:hover {
+    background-color:  var(--corCard);
+}
+
+.menuPrincipal__botao:active {
+    background-color:  var(--corMenuPrincipal);
+}
+
+.menuPrincipal__botao--selecionado {
+    background-color:  var(--corCard);
+}
+
+
+.menuPrincipal a {
+    list-style: none;
+    color: var(--corFonte);
+}

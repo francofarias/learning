@@ -1,0 +1,13 @@
+.cabeçalho {
+
+    overflow: hidden;
+    padding: 10px 20px;
+}
+
+.cabeçalho h1 {
+    background-color: var(--corCard);
+    padding: 5px;
+    border-radius: 2px;
+    font-size: 1.6rem;
+    /* text-align: center; */
+}

@@ -1,0 +1,6 @@
+.rodape {
+    background-color: var(--corRodape);
+    overflow: hidden;
+    padding-left: 20px;
+    padding-top:5px;
+}

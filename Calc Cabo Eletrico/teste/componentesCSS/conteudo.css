@@ -1,0 +1,31 @@
+.conteudo {
+    overflow: hidden;
+    color: white;
+    padding: 20px;
+}
+
+.card {
+    background-color:  var(--corCard);
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.card__btn {
+    margin-top: 5px;
+    padding: 5px 3px;
+    padding-right: 8px;
+    border-width: 1px;
+    border: 0;
+    background-color: var(--corMenuPrincipal);
+    color: var(--corFonte);
+    box-shadow: 0.2px 0.2px 0.3px white;
+
+}
+
+.card__btn:hover {
+    background-color: gray;
+}
+
+.card__btn:active {
+    background-color: var(--corMenuPrincipal);
+}
