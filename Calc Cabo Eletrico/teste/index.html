@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="./componentesCSS/cabeçalho.css">
     <link rel="stylesheet" href="./componentesCSS/conteudo.css">
     <link rel="stylesheet" href="./componentesCSS/rodape.css">
+    <link rel="stylesheet" href="./componentesCSS/popup.css">
     <title>Cálculo Cabos Elétricos</title>
 </head>
 <body>
-<div class="app">    
+<div class="app" id='app'>    
     <header class="cabeçalho">
         <h1 class="cabeçalho__titulo">Cálculo Cabos Elétricos</h1>
     </header>
@@ -29,11 +30,28 @@
             <h2>Home</h2>
             <hr>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt repudiandae dolores sed reprehenderit, expedita modi nobis velit soluta enim inventore neque cupiditate officia repellendus eum commodi eius odio quisquam nesciunt?</p>
-            <button class="card__btn" onclick="">Criar Novo Projeto</button>
+            <button class="card__btn" onclick="abrePopup(popupProjetoTemp)">Criar Novo Projeto</button>
         </div>
     </main>
 
-    <div class="popup"></div>
+    <!-- <div class="popup" id="popupProjeto">
+        <div class="popup__janela">
+        <div class="formulario" id="formProjeto">
+            <legend>Criar Novo Projeto</legend>
+            <hr>
+            <label for="idProjeto">Código do projeto: </label>
+            <input type="text" name="idProjeto" id="idProjeto"class="formulario__textInput" placeholder="Código/id. do projeto"autofocus maxlength="20">
+            <br>
+            <label for="nomeProjeto">Nomo do projeto: </label>
+            <input type="text" name="nomeProjeto" id="nomeProjeto"class="formulario__textInput" placeholder="Digite o nome doprojeto">
+            <br>
+            <label for="descricaoProjeto">Descrição do projeto: </label>
+            <textarea name="descricaoProjeto" id="descricaoProjeto" class="formulario__textInput" placeholder="Digite uma breve descrição..." cols="30" rows="3" maxlength="90"></textarea>
+            <br>
+            <button type="submit" name="idProjeto" id="idProjeto" class="card__btn" onclick="removePopup('popupProjeto')">Criar projeto</button>
+        </div>
+        </div>
+    </div> -->
     
     <footer class="rodape">
         <p>Todos os direitos reservados: Franco F. Farias</p>

@@ -10,8 +10,10 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font: 18px Arial;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
     color: var(--corFonte);
+    
 }
 h1, h2, h3, p, a {
     text-decoration: none;
@@ -22,7 +24,7 @@ h1, h2, h3, p, a {
     background-image: var(--corFundo);
     display: grid;
     grid-template-columns: 200px 1fr 200px;
-    grid-template-rows: 60px calc(100vh - 32px - 60px) 32px;
+    grid-template-rows: 60px calc(100vh - 25px - 60px) 25px;
     grid-template-areas: "menu header header"
                          "menu conteudo conteudo"
                          "menu rodape rodape";
@@ -45,15 +47,3 @@ h1, h2, h3, p, a {
 }
 
 /* Testes */
-.popup {
-    /* grid-area: conteudo; */
-    grid-row: 1/4;
-    grid-row: 1/4;
-    position: absolute;
-    left: 300px;
-    top: 300px;
-    background-color: green;
-    width: 50px;
-    height: 50px;
-    z-index: 4;
-}
