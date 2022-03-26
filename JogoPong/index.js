@@ -99,7 +99,7 @@ var raquete = {
             this.contador *= -1
         }
 
-        -60 < erro < 60
+        //-60 < erro < 60
         //O contator incrimenta e decrementa a chance da raquete errar a bolinha com o tempo
         this.chanceErro += this.contador
         //Para determinar a velocidade que a raquete vai seguir a bolinha subtraimos a posição y da bolinha da da raquete com a correção para a posição do meio da raqueta e adicionamos o erro
